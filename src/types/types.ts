@@ -62,11 +62,6 @@ export type ReplaceHighlightTags = (
   highlightPostTag?: string
 ) => string
 
-export type MergeFiltersAndNumericFilters = (
-  filters?: string,
-  numericFilters?: string[]
-) => string
-
 export type CreateSnippetResult = (
   snippetsParams: HighLightParams & SnippetsParams & FormattedHit
 ) => { formattedHit: any } & ISSearchParams
@@ -78,19 +73,19 @@ export type SnippetValue = (
   highlightPostTag?: string
 ) => string
 
-export type TransformToMeiliSearchParams = (
+export type AdaptToMeiliSearchParams = (
   instantSearchParams: ISSearchParams,
   instantMeiliSearchContext: InstantMeiliSearchContext
 ) => Record<string, any>
 
-export type TransformToISResponse = (
+export type AdaptToISResponse = (
   indexUid: string,
   meiliSearchResponse: MStypes.SearchResponse<any, any>,
   instantSearchParams: ISSearchParams,
   instantMeiliSearchContext: InstantMeiliSearchContext
 ) => { results: SearchResponse[] }
 
-export type TransformToISHitsm = (
+export type AdaptToISHitsm = (
   meiliSearchHits: Array<Record<string, any>>,
   instantSearchParams: ISSearchParams,
   instantMeiliSearchContext: InstantMeiliSearchContext
